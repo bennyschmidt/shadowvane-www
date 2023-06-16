@@ -1,0 +1,20 @@
+{
+  "short_name": "Shadowvane",
+  "name": "Shadowvane",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#110d13"
+}

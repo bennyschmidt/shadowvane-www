@@ -1,0 +1,89 @@
+@font-face {
+  font-family: 'Fell English';
+  src: url('/font/IMFellEnglish-Regular.ttf');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: #080510;
+  color: white;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font: 500 normal 19px/21px 'Fell English', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+h2 {
+  color: white;
+  font: normal 400 4em serif;
+}
+
+h2, h3, h4 {
+  font-size: 2em;
+  font-weight: 400;
+  line-height: 1.2em;
+  text-transform: uppercase;
+}
+
+p {
+  max-width: 50%;
+  margin: 1rem auto;
+  line-height: 1.6em;
+}
+
+button {
+  background: white;
+  border-radius: 1.25rem;
+  border: none;
+  color: black;
+  min-width: 5rem;
+  max-width: 20rem;
+  padding: 1rem 3rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: .6;
+}
+
+input[disabled],
+button[disabled] {
+  cursor: not-allowed;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+ul > li {
+  margin: 1rem;
+  padding: 0;
+}
+
+@media (max-width: 900px) {
+  p {
+    max-width: 100%;
+    margin: 2rem 0 0;
+  }
+}
