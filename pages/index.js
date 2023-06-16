@@ -77,7 +77,7 @@ export default function Home ({
           />
         </div>
         <div className={styles.info}>
-          <h3>Through Hell and Back</h3>
+          <h3>To Hell and Back</h3>
           <p>Players begin by competing in either 5v5 or 1v1 PvP matches in a hellish city called Pandemonium.</p>
           <p>PvE objectives are completed in Afterworld &mdash; an open world realm where players and demons alike roam free.</p>
         </div>
