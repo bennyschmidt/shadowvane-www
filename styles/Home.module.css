@@ -288,6 +288,12 @@ button.link {
   border: none;
 }
 
+.characters > ul > li > img,
+.features > ul > li > img {
+  box-shadow: 0 0 3rem #41323b;
+  border-radius: 100vw;
+}
+
 @media (max-width: 900px) {
   .main {
     display: flex;
