@@ -101,33 +101,33 @@ export default function Home ({
             </li>
             <li>
               <Image
-                alt="An unknown character in Shadowvane"
-                src="/img/blank-avatar.png"
+                alt="A huntress in Shadowvane"
+                src="/img/huntress-avatar.png"
                 width={80}
                 height={80}
                 unoptimized
               />
-              <h3>???</h3>
+              <h3><span className={styles.lock} title="Coming soon" />Huntress</h3>
+            </li>
+            <li>
+              <Image
+                alt="A necromancer in Shadowvane"
+                src="/img/necromancer-avatar.png"
+                width={80}
+                height={80}
+                unoptimized
+              />
+              <h3><span className={styles.lock} title="Coming soon" />Necromancer</h3>
             </li>
             <li>
               <Image
                 alt="An unknown character in Shadowvane"
-                src="/img/blank-avatar.png"
+                src="/img/priest-avatar.png"
                 width={80}
                 height={80}
                 unoptimized
               />
-              <h3>???</h3>
-            </li>
-            <li>
-              <Image
-                alt="An unknown character in Shadowvane"
-                src="/img/blank-avatar.png"
-                width={80}
-                height={80}
-                unoptimized
-              />
-              <h3>???</h3>
+              <h3><span className={styles.lock} title="Coming soon" />Priest</h3>
             </li>
           </ul>
           <div id="character-preview" className={styles.knight}>
@@ -186,7 +186,7 @@ export default function Home ({
       <section className={[styles.container, styles.features].join(' ')}>
         <h4>Game Features</h4>
         <ul>
-          <li className={styles.feature}>
+          <li className={styles.feature} title="Pandemonium (PvP)">
             <Image
               alt="Pandemonium (PvP)"
               title="Pandemonium (PvP)"
@@ -197,27 +197,27 @@ export default function Home ({
             />
             <h3>Pandemonium<br />(PvP)</h3>
           </li>
-          <li className={styles.feature}>
+          <li className={styles.feature} title="Coming soon">
             <Image
               alt="Afterworld (Open World)"
-              title="Afterworld (Open World)"
+              title="Coming soon"
               src="/img/openworld-avatar.png"
               width={80}
               height={80}
               unoptimized
             />
-            <h3>Afterworld<br />(Open World)</h3>
+            <h3><span className={styles.lock} title="Coming soon" />Afterworld<br />(Open World)</h3>
           </li>
-          <li className={styles.feature}>
+          <li className={styles.feature} title="Coming soon">
             <Image
               alt="Dungeons (PvE)"
-              title="Dungeons (PvE)"
+              title="Coming soon"
               src="/img/dungeons-avatar.png"
               width={80}
               height={80}
               unoptimized
             />
-            <h3>Dungeons<br />(PvE)</h3>
+            <h3><span className={styles.lock} title="Coming soon" />Dungeons<br />(PvE)</h3>
           </li>
         </ul>
       </section>

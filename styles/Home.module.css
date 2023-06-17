@@ -211,6 +211,18 @@ button.link {
   text-transform: none;
 }
 
+.lock {
+  display: inline-block;
+  width: .75em;
+  height: .75em;
+  background: url('/img/lock.svg') 0 0 / contain no-repeat;
+  margin-right: .1em;
+}
+
+.feature:not(.feature:first-of-type) > img {
+  filter: saturate(0);
+}
+
 .knight > img {
   width: 70%;
   height: 70%;
