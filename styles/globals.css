@@ -47,16 +47,37 @@ p {
   line-height: 1.6em;
 }
 
+input {
+  display: block;
+  border: none;
+  padding: .75rem;
+  border-radius: .5rem;
+  width: 50%;
+  margin: 1rem auto;
+  background: black;
+  color: white;
+  border: 3px double #222;
+  outline: none;
+}
+
+input:focus {
+  border-color: #70590a;
+}
+
 button {
   background: white;
-  border-radius: 1.25rem;
-  border: none;
+  border: 3px double black;
+  border-radius: .5rem;
   color: black;
-  min-width: 5rem;
-  max-width: 20rem;
-  padding: 1rem 3rem;
-  font-weight: 800;
+  width: 10rem;
+  padding: 1rem 2rem;
+  font: 800 normal 16px 'Fell English', serif;
+  text-transform: uppercase;
   cursor: pointer;
+}
+
+button:hover {
+  opacity: .9;
 }
 
 input[disabled],
@@ -75,6 +96,14 @@ ul {
 ul > li {
   margin: 1rem;
   padding: 0;
+}
+
+hr {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  margin: 1rem auto;
+  opacity: .2;
 }
 
 @media (max-width: 900px) {

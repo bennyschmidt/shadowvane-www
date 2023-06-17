@@ -5,35 +5,27 @@ import '../styles/globals.css';
 
 import styles from '../styles/Home.module.css';
 
+const TIMEOUT_INTERVAL = 6000;
+
 export default function App ({ Component, pageProps }) {
   const [message, setMessage] = useState('');
+  const [timeoutId, setTimeoutId] = useState();
 
   let timeout;
 
   const showNotification = message => {
-    clearTimeout(timeout);
-    setMessage(message);
-
-    timeout = setTimeout(() => {
-      setMessage('');
-    }, TIMEOUT_INTERVAL);
-  };
-
-  const handleAPIResponse = async response => {
-    const data = await response.json();
-
-    const { message } = data;
-
-    if (message) {
-      showNotification(message);
+    if (timeoutId) {
+      clearTimeout(timeoutId);
     }
+
+    setMessage(message);
+    setTimeoutId(setTimeout(() => setMessage(''), TIMEOUT_INTERVAL));
   };
 
   const props = {
     ...pageProps,
 
-    showNotification,
-    handleAPIResponse
+    showNotification
   };
 
   return (

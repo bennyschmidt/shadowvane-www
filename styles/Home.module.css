@@ -159,14 +159,13 @@ button.link {
   top: -5rem;
   left: .5rem;
   right: .5rem;
-  height: 3.5rem;
   width: calc(100% - 1rem);
-  line-height: 3.5rem;
-  padding: 0 1rem;
-  border-radius: 1rem;
-  background: #0070f3;
-  color: white;
-  z-index: 1000;
+  padding: 1rem;
+  border-radius: .5rem;
+  background: white;
+  color: black;
+  z-index: 2000;
+  border: 3px double black;
   opacity: 0;
   transition: top .5s ease, opacity .5s ease;
 }
@@ -330,6 +329,48 @@ button.link {
   border-radius: 100vw;
 }
 
+.overlay {
+  position: fixed;
+  left: 5%;
+  right: 5%;
+  top: 5%;
+  bottom: 5%;
+  display: block;
+  z-index: 1000;
+  background: black;
+  border-radius: 1rem;
+  border: 3px double white;
+  box-shadow: 0 0 2rem black;
+  overflow-y: auto;
+}
+
+.close {
+  position: absolute;
+  width: auto;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 1rem;
+  color: white;
+  min-width: 0;
+}
+
+.overlay h3 {
+  font-size: 1.2em;
+}
+
+.platforms {
+  width: 80%;
+  max-width: 40rem;
+  margin: 1rem auto;
+}
+
+.platform {
+  margin: 0;
+}
+
 @media (max-width: 900px) {
   .main {
     display: flex;
@@ -384,6 +425,22 @@ button.link {
   .characters > ul > li > img {
     width: 50px;
     height: 50px;
+  }
+
+  .overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .download,
+  .overlay hr {
+    display: none;
+  }
+
+  .overlay button:not(.close) {
+    margin: 0 auto;
   }
 }
 

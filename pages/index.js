@@ -16,11 +16,18 @@ const OPERATING_SYSTEMS = {
   "Linux": "Linux"
 };
 
-export default function Home ({
-  handleAPIResponse,
-  showNotification
-}) {
+// const BASE_URL = 'https://www.exactchange.network/shadowvane';
+const BASE_URL = 'http://localhost:1337/shadowvane';
+
+export default function Home ({ showNotification }) {
   const [OSName, setOSName] = useState();
+  const [isOverlayShown, setIsOverlayShown] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  const [email, setEmail] = useState('');
+  const [displayName, setDisplayName] = useState('');
+  const [password1, setPassword1] = useState('');
+  const [password2, setPassword2] = useState('');
 
   useEffect(() => {
     for (const userAgent of Object.keys(OPERATING_SYSTEMS)) {
@@ -32,12 +39,136 @@ export default function Home ({
     }
   }, []);
 
+  const onClickCreate = async () => {
+    setIsDisabled(true);
+
+    const reasons = [];
+
+    if (!email?.match('@') || email.trim().length < 3) {
+      reasons.push('invalid email address');
+    }
+
+    if (displayName.trim().length < 2) {
+      reasons.push('character name too short');
+    }
+
+    if (password1.trim().length < 6) {
+      reasons.push('password too short');
+    }
+
+    if (password1.trim() !== password2.trim()) {
+      reasons.push('passwords don\'t match');
+    }
+
+    if (reasons.length) {
+      showNotification(`Issues: ${reasons.join(', ')}`);
+      setIsDisabled(false);
+
+      return;
+    }
+
+    const payload = {
+      OSName,
+      username: email,
+      displayName,
+      password1
+    };
+
+    try {
+      const response = await fetch(`${BASE_URL}/signup`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response?.ok) {
+        const result = await response.json();
+
+        if (result?.success) {
+          showNotification('Your account has been created! Check your email for further instructions.');
+          setIsOverlayShown(false);
+
+        } else {
+          if (result?.message) {
+            showNotification(result.message);
+          } else {
+            showNotification('Unknown error.');
+          }
+        }
+      }
+    } catch (error) {
+      showNotification(error?.message || 'Unknown error.');
+    }
+
+    setIsDisabled(false);
+  };
+
   return (
     <>
+      {isOverlayShown && (<aside className={styles.overlay}>
+        <h3>Create Account</h3>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={({ target: { value } }) => setEmail(value)}
+        />
+        <input
+          type="text"
+          placeholder="Character name"
+          value={displayName}
+          onChange={({ target: { value } }) => setDisplayName(value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password1}
+          onChange={({ target: { value } }) => setPassword1(value)}
+        />
+        <input
+          type="password"
+          placeholder="Repeat password"
+          value={password2}
+          onChange={({ target: { value } }) => setPassword2(value)}
+        />
+        <button onClick={onClickCreate} disabled={isDisabled}>
+          Create
+        </button>
+        <hr />
+        <div className={styles.download}>
+          <h3>Download</h3>
+          <ul className={styles.platforms}>
+            <li className={styles.platform}>
+              <h5>Windows</h5>
+              <button disabled title="OPEN ALPHA: 06-23-23">
+                Download (.exe)
+              </button>
+            </li>
+            <li className={styles.platform}>
+              <h5>Mac</h5>
+              <button disabled title="OPEN ALPHA: 06-23-23">
+                Download (.dmg)
+              </button>
+            </li>
+            <li className={styles.platform}>
+              <h5>Linux</h5>
+              <button disabled title="OPEN ALPHA: 06-23-23">
+                Download (.AppImage)
+              </button>
+            </li>
+          </ul>
+        </div>
+        <button onClick={() => setIsOverlayShown(false)} className={styles.close}>
+          Close
+        </button>
+      </aside>)}
       <header className={styles.hero}>
         <section className={[styles.container, styles.cta].join(' ')}>
           <h2>Shadowvane</h2>
-          <button className={styles.play} title="Coming soon">
+          <button className={styles.play} onClick={() => setIsOverlayShown(true)}>
             Play
           </button>
         </section>
@@ -445,7 +576,7 @@ export default function Home ({
       <footer className={styles.footer}>
         <h3>Pandemonium awaits</h3>
         <p>Shadowvane is currently in OPEN ALPHA. You can queue up for matches in Pandemonium (PvP) for now. It is free to play!</p>
-        <button className={styles.play} title="Coming soon">
+        <button className={styles.play} onClick={() => setIsOverlayShown(true)}>
           Play
         </button>
       </footer>
