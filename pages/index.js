@@ -16,8 +16,8 @@ const OPERATING_SYSTEMS = {
   "Linux": "Linux"
 };
 
-// const BASE_URL = 'https://www.exactchange.network/shadowvane';
-const BASE_URL = 'http://localhost:1337/shadowvane';
+const BASE_URL = 'https://www.exactchange.network/shadowvane';
+// const BASE_URL = 'http://localhost:1337/shadowvane';
 
 export default function Home ({ showNotification }) {
   const [OSName, setOSName] = useState();
