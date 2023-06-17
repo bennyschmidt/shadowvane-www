@@ -278,6 +278,10 @@ button.link {
   justify-content: center;
 }
 
+.features > ul {
+  margin: 3rem 0 0;
+}
+
 .characters > ul > li,
 .features > ul > li {
   transition: text-shadow .5s ease;
@@ -368,11 +372,10 @@ button.link {
   }
 
   .characters {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .characters > ul {
-    flex-direction: row;
     justify-content: space-between;
     width: 100%;
     margin: 1rem auto 2rem;
