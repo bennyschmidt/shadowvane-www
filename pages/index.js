@@ -99,7 +99,7 @@ export default function Home ({
               />
               <h3>Knight</h3>
             </li>
-            <li>
+            <li title="Coming soon">
               <Image
                 alt="A huntress in Shadowvane"
                 src="/img/huntress-avatar.png"
@@ -109,7 +109,7 @@ export default function Home ({
               />
               <h3><span className={styles.lock} title="Coming soon" />Huntress</h3>
             </li>
-            <li>
+            <li title="Coming soon">
               <Image
                 alt="A necromancer in Shadowvane"
                 src="/img/necromancer-avatar.png"
@@ -119,9 +119,9 @@ export default function Home ({
               />
               <h3><span className={styles.lock} title="Coming soon" />Necromancer</h3>
             </li>
-            <li>
+            <li title="Coming soon">
               <Image
-                alt="An unknown character in Shadowvane"
+                alt="A priest in Shadowvane"
                 src="/img/priest-avatar.png"
                 width={80}
                 height={80}

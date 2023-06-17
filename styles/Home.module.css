@@ -133,6 +133,7 @@ button.link {
   align-items: center;
   color: white;
   text-align: center;
+  margin-top: 5rem;
 }
 
 .features h4 {
@@ -141,6 +142,7 @@ button.link {
 
 .feature {
   min-width: 10rem;
+  cursor: pointer;
 }
 
 .media {
@@ -219,7 +221,8 @@ button.link {
   margin-right: .1em;
 }
 
-.feature:not(.feature:first-of-type) > img {
+.characters > ul > li:not(.characters > ul > li:first-of-type),
+.feature:not(.feature:first-of-type) {
   filter: saturate(0);
 }
 
@@ -275,6 +278,29 @@ button.link {
   justify-content: center;
 }
 
+.characters > ul > li,
+.features > ul > li {
+  transition: text-shadow .5s ease;
+}
+
+.footer h3,
+.footer p,
+.characters > ul > li:hover,
+.features > ul > li:hover {
+  text-shadow: 0 0 .75rem #e60981;
+}
+
+.characters > ul > li > img,
+.features > ul > li > img {
+  transition: box-shadow .5s ease;
+}
+
+.characters > ul > li:hover > img,
+.features > ul > li:hover > img {
+  transition: box-shadow .5s ease;
+  box-shadow: 0 0 3rem #a61362;
+}
+
 .play {
   background: url('/img/play-button.png') center center / contain no-repeat;
   height: 6rem;
@@ -286,6 +312,12 @@ button.link {
   overflow: hidden;
   cursor: pointer;
   border: none;
+  transition: filter 1s ease;
+  filter: brightness(-1);
+}
+
+.play:hover {
+  filter: brightness(1.5);
 }
 
 .characters > ul > li > img,
