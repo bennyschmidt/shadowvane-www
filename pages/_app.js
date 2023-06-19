@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 
 import '../styles/globals.css';
 
@@ -40,6 +41,7 @@ export default function App ({ Component, pageProps }) {
         {message}
       </aside>
       <Component {...props} />
+      <Analytics />
     </>
   );
 }
