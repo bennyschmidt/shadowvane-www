@@ -143,19 +143,19 @@ export default function Home ({ showNotification }) {
           <ul className={styles.platforms}>
             <li className={styles.platform}>
               <h5>Windows</h5>
-              <button disabled title="OPEN ALPHA: 06-23-23">
+              <button disabled title="OPEN ALPHA: June 25, 2023">
                 Download (.exe)
               </button>
             </li>
             <li className={styles.platform}>
               <h5>Mac</h5>
-              <button disabled title="OPEN ALPHA: 06-23-23">
+              <button disabled title="OPEN ALPHA: June 25, 2023">
                 Download (.dmg)
               </button>
             </li>
             <li className={styles.platform}>
               <h5>Linux</h5>
-              <button disabled title="OPEN ALPHA: 06-23-23">
+              <button disabled title="OPEN ALPHA: June 25, 2023">
                 Download (.AppImage)
               </button>
             </li>
