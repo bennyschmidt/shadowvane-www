@@ -19,6 +19,9 @@ const OPERATING_SYSTEMS = {
 const BASE_URL = 'https://www.exactchange.network/shadowvane';
 // const BASE_URL = 'http://localhost:1337/shadowvane';
 
+// const MEDIA_URL = 'https://www.exactchange.network/media/downloads';
+const MEDIA_URL = 'http://localhost:1337/media/downloads';
+
 export default function Home ({ showNotification }) {
   const [OSName, setOSName] = useState();
   const [isOverlayShown, setIsOverlayShown] = useState(false);
@@ -38,6 +41,14 @@ export default function Home ({ showNotification }) {
       }
     }
   }, []);
+
+  const onClickDownloadWin = () => {
+    window.location.href = `${MEDIA_URL}/shadowvane/win/Shadowvane.zip`;
+  };
+
+  const onClickDownloadLinux = () => {
+    window.location.href = `${MEDIA_URL}/shadowvane/linux/Shadowvane.zip`;
+  };
 
   const onClickCreate = async () => {
     setIsDisabled(true);
@@ -143,19 +154,19 @@ export default function Home ({ showNotification }) {
           <ul className={styles.platforms}>
             <li className={styles.platform}>
               <h5>Windows</h5>
-              <button disabled title="OPEN ALPHA: June 25, 2023">
+              <button onClick={onClickDownloadWin}>
                 Download (.exe)
               </button>
             </li>
             <li className={styles.platform}>
               <h5>Mac</h5>
-              <button disabled title="OPEN ALPHA: June 25, 2023">
+              <button disabled title="Coming soon">
                 Download (.dmg)
               </button>
             </li>
             <li className={styles.platform}>
               <h5>Linux</h5>
-              <button disabled title="OPEN ALPHA: June 25, 2023">
+              <button onClick={onClickDownloadLinux}>
                 Download (.AppImage)
               </button>
             </li>
