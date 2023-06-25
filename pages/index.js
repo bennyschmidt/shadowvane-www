@@ -19,8 +19,8 @@ const OPERATING_SYSTEMS = {
 const BASE_URL = 'https://www.exactchange.network/shadowvane';
 // const BASE_URL = 'http://localhost:1337/shadowvane';
 
-// const MEDIA_URL = 'https://www.exactchange.network/media/downloads';
-const MEDIA_URL = 'http://localhost:1337/media/downloads';
+const MEDIA_URL = 'https://www.exactchange.network/media/downloads';
+// const MEDIA_URL = 'http://localhost:1337/media/downloads';
 
 export default function Home ({ showNotification }) {
   const [OSName, setOSName] = useState();
