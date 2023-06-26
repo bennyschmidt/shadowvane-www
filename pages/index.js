@@ -46,6 +46,10 @@ export default function Home ({ showNotification }) {
     window.location.href = `${MEDIA_URL}/shadowvane/win/Shadowvane.zip`;
   };
 
+  const onClickDownloadMac = () => {
+    window.location.href = `${MEDIA_URL}/shadowvane/mac/Shadowvane.zip`;
+  };
+
   const onClickDownloadLinux = () => {
     window.location.href = `${MEDIA_URL}/shadowvane/linux/Shadowvane.zip`;
   };
@@ -160,7 +164,7 @@ export default function Home ({ showNotification }) {
             </li>
             <li className={styles.platform}>
               <h5>Mac</h5>
-              <button disabled title="Coming soon">
+              <button onClick={onClickDownloadMac}>
                 Download (.dmg)
               </button>
             </li>
