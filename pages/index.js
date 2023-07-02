@@ -158,23 +158,34 @@ export default function Home ({ showNotification }) {
           <ul className={styles.platforms}>
             <li className={styles.platform}>
               <h5>Windows</h5>
-              <button onClick={onClickDownloadWin} disabled title="Uploading a new release, check back in 1 hr...">
+              <button onClick={onClickDownloadWin}>
                 Download (.exe)
               </button>
             </li>
             <li className={styles.platform}>
               <h5>Mac</h5>
-              <button onClick={onClickDownloadMac} disabled title="Uploading a new release, check back in 1 hr...">
+              <button onClick={onClickDownloadMac}>
                 Download (.dmg)
               </button>
             </li>
             <li className={styles.platform}>
               <h5>Linux</h5>
-              <button onClick={onClickDownloadLinux} disabled title="Uploading a new release, check back in 1 hr...">
+              <button onClick={onClickDownloadLinux}>
                 Download (.AppImage)
               </button>
             </li>
           </ul>
+          <aside className={styles.notice}>
+            <h3>System Requirements</h3>
+            <p>OS: 64-bit Windows 10 or newer, 64-bit Linux, macOS Big Sur or newer</p>
+            <p>Processor: Intel Core i5-2500K or AMD FX-8350 or better</p>
+            <p>Memory: 16GB RAM</p>
+            <p>Graphics: NVIDIA GeForce GTX 660 or AMD Radeon R9 280 or better</p>
+            <p>Storage: SSD with 5 GB available space</p>
+            <p>Internet: Broadband Connection</p>
+            <p style={{ fontSize: ".9em" }}>* Low graphics settings, 30fps</p>
+            <p style={{ fontSize: ".9em" }}>* Shadowvane will attempt to run on hardware below minimum specifications, including on HDDs, dual-core CPUs, and on-board GPUs, however, the game experience may be significantly diminished.</p>
+          </aside>
         </div>
         <button onClick={() => setIsOverlayShown(false)} className={styles.close}>
           Close

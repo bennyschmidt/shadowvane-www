@@ -371,6 +371,15 @@ button.link {
   margin: 0;
 }
 
+.notice {
+  font-size: .9em;
+  border-top: solid 1px white;
+  border: 3px double #911d1d;
+  border-radius: 1rem;
+  margin: 2rem;
+  font-size: .9em;
+}
+
 @media (max-width: 900px) {
   .main {
     display: flex;
