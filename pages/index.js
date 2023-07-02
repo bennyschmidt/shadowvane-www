@@ -158,19 +158,19 @@ export default function Home ({ showNotification }) {
           <ul className={styles.platforms}>
             <li className={styles.platform}>
               <h5>Windows</h5>
-              <button onClick={onClickDownloadWin}>
+              <button onClick={onClickDownloadWin} disabled title="Uploading a new release, check back in 1 hr...">
                 Download (.exe)
               </button>
             </li>
             <li className={styles.platform}>
               <h5>Mac</h5>
-              <button onClick={onClickDownloadMac}>
+              <button onClick={onClickDownloadMac} disabled title="Uploading a new release, check back in 1 hr...">
                 Download (.dmg)
               </button>
             </li>
             <li className={styles.platform}>
               <h5>Linux</h5>
-              <button onClick={onClickDownloadLinux}>
+              <button onClick={onClickDownloadLinux} disabled title="Uploading a new release, check back in 1 hr...">
                 Download (.AppImage)
               </button>
             </li>
