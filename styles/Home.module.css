@@ -377,7 +377,7 @@ button.link {
   border: 3px double #911d1d;
   border-radius: 1rem;
   margin: 2rem;
-  font-size: .9em;
+  color: #911d1d;
 }
 
 @media (max-width: 900px) {

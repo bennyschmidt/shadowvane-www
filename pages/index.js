@@ -177,14 +177,16 @@ export default function Home ({ showNotification }) {
           </ul>
           <aside className={styles.notice}>
             <h3>System Requirements</h3>
-            <p>OS: 64-bit Windows 10 or newer, 64-bit Linux, macOS Big Sur or newer</p>
-            <p>Processor: Intel Core i5-2500K or AMD FX-8350 or better</p>
+            <p>Windows® 10 or newer (64-bit)</p>
+            <p>Debian 8, Ubuntu 18.04, CentOS 7, Fedora 27, or newer (64-bit)</p>
+            <p>macOS Big Sur 11.1 or newer</p>
+            <p>Processor: Intel® Core™ i5 2.4GHz or higher</p>
             <p>Memory: 16GB RAM</p>
-            <p>Graphics: NVIDIA GeForce GTX 660 or AMD Radeon R9 280 or better</p>
+            <p>Graphics: NVIDIA® Geforce® GTX970, AMD Radeon™ RX 480, or better</p>
             <p>Storage: SSD with 5 GB available space</p>
             <p>Internet: Broadband Connection</p>
             <p style={{ fontSize: ".9em" }}>* Low graphics settings, 30fps</p>
-            <p style={{ fontSize: ".9em" }}>* Shadowvane will attempt to run on hardware below minimum specifications, including on HDDs, dual-core CPUs, and on-board GPUs, however, the game experience may be significantly diminished.</p>
+            <p style={{ fontSize: ".9em" }}>** Shadowvane will attempt to run on hardware below minimum specifications, but in such cases the game experience may be significantly diminished</p>
           </aside>
         </div>
         <button onClick={() => setIsOverlayShown(false)} className={styles.close}>
