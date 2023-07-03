@@ -99,8 +99,8 @@ button.link {
 .product > img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: right top;
+  object-fit: cover;
+  object-position: center bottom;
   border-radius: 1rem;
 }
 
@@ -378,6 +378,7 @@ button.link {
   border-radius: 1rem;
   margin: 2rem;
   color: #911d1d;
+  display: none;
 }
 
 @media (max-width: 900px) {
