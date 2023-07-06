@@ -316,9 +316,9 @@ export default function Home ({ showNotification }) {
             <ul id="character-abilities" className={styles.abilities}>
               <li>
                 <Image
-                  alt="Death Strike"
-                  title="Death Strike"
-                  src="/img/death-strike-icon.png"
+                  alt="Lich Blade"
+                  title="Lich Blade"
+                  src="/img/lich-blade-icon.png"
                   width={40}
                   height={40}
                   unoptimized
@@ -370,7 +370,7 @@ export default function Home ({ showNotification }) {
               height={80}
               unoptimized
             />
-            <h3>Battlegrounds<br />(PvP)</h3>
+            <h3>Arena<br />(PvP)</h3>
           </li>
           <li className={styles.feature} title="Coming soon">
             <Image
@@ -412,13 +412,46 @@ export default function Home ({ showNotification }) {
         </div>
       </section>
       <footer className={styles.footer}>
-        <h3>Pandemonium awaits</h3>
-        <p>Shadowvane is currently in OPEN ALPHA. You can queue up for matches in Pandemonium (PvP) for now. It is free to play!</p>
+        <Link href="https://www.youtube.com/watch?v=m2kREn9fUjU" target="_blank">
+          <Image
+            alt="Shadowvane: Into the Mists"
+            src="/img/into-the-mists.png"
+            width={800}
+            height={540}
+            unoptimized
+            style={{
+              display: 'block',
+              objectFit: 'cover',
+              boxShadow: '0 0 2rem black',
+              borderRadius: '1rem',
+              margin: '1rem',
+              maxWidth: 'calc(100% - 2rem)'
+            }}
+          />
+        </Link>
         <button className={styles.play} onClick={() => setIsOverlayShown(true)}>
           Play
         </button>
       </footer>
-      <div style={{ padding: '1rem', display: 'flex', justifyContent: 'center' }}>
+      <div style={{
+        padding: '1rem',
+        display: 'flex',
+        justifyContent: 'end',
+        alignItems: 'center',
+        textAlign: 'center',
+        background: '#261620',
+        borderTop: '3px double #333'
+      }}>
+        <Link href="mailto:hello@bennyschmidt.com" target="_blank">
+          <Image
+            alt="Email the developer"
+            src="/img/envelope.png"
+            width={17}
+            height={17}
+            unoptimized
+            style={{ display: 'block', opacity: .25, margin: '0 .5rem' }}
+          />
+        </Link>
         <Link href="https://discord.gg/W7bTgdp7" target="_blank">
           <Image
             alt="Shadowvane on Discord"
@@ -426,7 +459,17 @@ export default function Home ({ showNotification }) {
             width={20}
             height={15}
             unoptimized
-            style={{ display: 'block', opacity: .25 }}
+            style={{ display: 'block', opacity: .25, margin: '0 .5rem' }}
+          />
+        </Link>
+        <Link href="https://www.indiedb.com/games/shadowvane" target="_blank">
+          <Image
+            alt="Shadowvane on IndieDB"
+            src="/img/indiedb.png"
+            width={64}
+            height={30}
+            unoptimized
+            style={{ display: 'block', opacity: .25, margin: '0 .5rem' }}
           />
         </Link>
       </div>
