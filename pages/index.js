@@ -224,7 +224,7 @@ export default function Home ({ showNotification }) {
             loop
             muted
           >
-            <source src="https://www.exactchange.network/media/shadowvane.mp4" type="video/mp4" />
+            <source src="https://www.exactchange.network/media/into-the-mists.mp4" type="video/mp4" />
           </video>
         </div>
       </header>
