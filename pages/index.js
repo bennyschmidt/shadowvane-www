@@ -1,20 +1,36 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import styles from '../styles/Home.module.css';
 
 const OPERATING_SYSTEMS = {
-  "Windows NT 10.0": "Windows 10",
-  "Windows NT 6.3": "Windows 8.1",
-  "Windows NT 6.2": "Windows 8",
-  "Windows NT 6.1": "Windows 7",
-  "Windows NT 6.0": "Windows Vista",
-  "Windows NT 5.1": "Windows XP",
-  "Windows NT 5.0": "Windows 2000",
-  "Mac": "macOS",
-  "X11": "UNIX",
-  "Linux": "Linux"
+  'Windows NT 10.0': 'Windows 10',
+  'Windows NT 6.3': 'Windows 8.1',
+  'Windows NT 6.2': 'Windows 8',
+  'Windows NT 6.1': 'Windows 7',
+  'Windows NT 6.0': 'Windows Vista',
+  'Windows NT 5.1': 'Windows XP',
+  'Windows NT 5.0': 'Windows 2000',
+  'Mac': 'macOS',
+  'X11': 'UNIX',
+  'Linux': 'Linux'
 };
+
+const SCREENSHOTS = [
+  'shadowvane-death.png',
+  'shadowvane-docks.png',
+  'shadowvane-jump.png',
+  'shadowvane-pandemonium-8.png',
+  'shadowvane-pve.png',
+  'soul-barrier.png',
+  'title.png',
+  'the-mists-blood-harbor.png',
+  'the-mists-lich-blade.png',
+  'the-mists-pvp.png',
+  'the-mists-sunset.png',
+  'the-mists-victory.png'
+];
 
 const BASE_URL = 'https://www.exactchange.network/shadowvane';
 // const BASE_URL = 'http://localhost:1337/shadowvane';
@@ -229,7 +245,7 @@ export default function Home ({ showNotification }) {
         <div className={styles.product}>
           <Image
             alt="Shadowvane"
-            src="/img/screenshots/shadowvane-pandemonium-bridge.png"
+            src="/img/screenshots/the-mists-victory.png"
             width={640}
             height={360}
             unoptimized
@@ -237,7 +253,7 @@ export default function Home ({ showNotification }) {
         </div>
         <div className={styles.info}>
           <h3>To Hell and Back</h3>
-          <p>Players begin by competing in either 5v5 or 1v1 PvP matches in a hellish city called Pandemonium.</p>
+          <p>Players begin by competing in either a 5v5 PvP match in a hellish city called Pandemonium, or a 1v1 PvP arena in The Mists.</p>
           <p>PvE objectives are completed in Afterworld &mdash; an open world realm where players and demons alike roam free.</p>
         </div>
       </main>
@@ -354,7 +370,7 @@ export default function Home ({ showNotification }) {
               height={80}
               unoptimized
             />
-            <h3>Pandemonium<br />(PvP)</h3>
+            <h3>Battlegrounds<br />(PvP)</h3>
           </li>
           <li className={styles.feature} title="Coming soon">
             <Image
@@ -383,222 +399,16 @@ export default function Home ({ showNotification }) {
       <section className={[styles.container, styles.media].join(' ')}>
         <h4>Media</h4>
         <div className={styles.screenshots}>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-bloodfiend-0.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-bloodfiend-1.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-bloodfiend-2.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-bloodvane.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-candle.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-candles.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-countdown.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-death.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-docks.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-grass.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-jump.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-pandemonium-0.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-pandemonium-1.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-pandemonium-2.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-pandemonium-4.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-pandemonium-5.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-pandemonium-6.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-pandemonium-7.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-pandemonium-8.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-pandemonium-bridge.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-pve.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-pvp.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-ranged-attack.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-shadowfiend.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-sword.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-target.png"
-              width={880}
-              height={496}
-            />
-          </div>
-          <div className={styles.screenshot}>
-            <Image
-              alt="Shadowvane screenshot"
-              src="/img/screenshots/shadowvane-victory.png"
-              width={880}
-              height={496}
-            />
-          </div>
+          {SCREENSHOTS.map(src => (
+            <div key={src} className={styles.screenshot}>
+              <Image
+                alt="Shadowvane screenshot"
+                src={`/img/screenshots/${src}`}
+                width={880}
+                height={496}
+              />
+            </div>
+          ))}
         </div>
       </section>
       <footer className={styles.footer}>
@@ -608,6 +418,18 @@ export default function Home ({ showNotification }) {
           Play
         </button>
       </footer>
+      <div style={{ padding: '1rem', display: 'flex', justifyContent: 'center' }}>
+        <Link href="https://discord.gg/W7bTgdp7" target="_blank">
+          <Image
+            alt="Shadowvane on Discord"
+            src="/img/discord.png"
+            width={20}
+            height={15}
+            unoptimized
+            style={{ display: 'block', opacity: .25 }}
+          />
+        </Link>
+      </div>
     </>
   );
 }
