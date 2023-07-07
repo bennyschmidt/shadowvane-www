@@ -336,9 +336,9 @@ export default function Home ({ showNotification }) {
               </li>
               <li>
                 <Image
-                  alt="Infinity Slice"
-                  title="Infinity Slice"
-                  src="/img/infinity-slice-icon.png"
+                  alt="Soul Barrier"
+                  title="Soul Barrier"
+                  src="/img/soul-barrier-icon.png"
                   width={40}
                   height={40}
                   unoptimized
