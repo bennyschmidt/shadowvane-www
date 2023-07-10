@@ -412,7 +412,7 @@ export default function Home ({ showNotification }) {
         </div>
       </section>
       <footer className={styles.footer}>
-        <Link href="https://www.youtube.com/watch?v=m2kREn9fUjU" target="_blank">
+        <Link href="https://www.youtube.com/watch?v=Wcxy1QqgF3s" target="_blank">
           <Image
             alt="Shadowvane: Into the Mists"
             src="/img/into-the-mists.png"
