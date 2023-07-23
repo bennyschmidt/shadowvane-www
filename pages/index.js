@@ -376,7 +376,7 @@ export default function Home ({ showNotification }) {
             <Image
               alt="Pandemonium (PvP)"
               title="Pandemonium (PvP)"
-              src="/img/pvp-avatar.png"
+              src="/img/dungeons-avatar.png"
               width={80}
               height={80}
               unoptimized
