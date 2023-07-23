@@ -220,8 +220,7 @@ button.link {
   margin-right: .1em;
 }
 
-.characters > ul > li:not(.characters > ul > li:first-of-type),
-.feature:not(.feature:first-of-type) {
+.characters > ul > li:not(.characters > ul > li:first-of-type) {
   filter: saturate(0);
 }
 

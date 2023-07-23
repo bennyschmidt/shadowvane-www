@@ -32,7 +32,7 @@ export default function App ({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Shadowvane | OPEN ALPHA</title>
+        <title>SHADOWVANE</title>
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo256.png" />

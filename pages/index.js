@@ -230,8 +230,8 @@ export default function Home ({ showNotification }) {
       </header>
       <main className={styles.main}>
         <div className={styles.info}>
-          <h3>Free to Play</h3>
-          <p>Shadowvane is a free-to-play online arena with MMO elements. Compete against other players in real-time PvP and complete PvE objectives in the open world.</p>
+          <h3>Soulslike MMO</h3>
+          <p>Shadowvane is a Soulslike MMORPG with a 1v1 PvP Arena, 5v5 Battleground, and an Open World realm where players can interact and advance their character.</p>
         </div>
         <div className={styles.product}>
           <Image
@@ -253,14 +253,14 @@ export default function Home ({ showNotification }) {
         </div>
         <div className={styles.info}>
           <h3>To Hell and Back</h3>
-          <p>Players begin by competing in either a 5v5 PvP match in a hellish city called Pandemonium, or a 1v1 PvP arena in The Mists.</p>
+          <p>Players can compete in either a 5v5 PvP match in a hellish city called Pandemonium, or a 1v1 PvP arena in The Mists.</p>
           <p>PvE objectives are completed in Afterworld &mdash; an open world realm where players and demons alike roam free.</p>
         </div>
       </main>
       <section className={[styles.container, styles.features].join(' ')}>
         <div>
           <h4>Character Prototypes</h4>
-          <p>Build your character from a PvP player template. As you gain experience and levels, you can customize the look, feel, and even class behavior of your character by unlocking traits, appearances, and abilities.</p>
+          <p>Build your character from a player template called a prototype. Unlock new prototypes in Afterworld to experience different play styles.</p>
         </div>
         <div id="character-select" className={styles.characters}>
           <ul>
@@ -361,6 +361,17 @@ export default function Home ({ showNotification }) {
       <section className={[styles.container, styles.features].join(' ')}>
         <h4>Game Features</h4>
         <ul>
+          <li className={styles.feature} title="The Mists (PvP)">
+            <Image
+              alt="The Mists (PvP)"
+              title="The Mists (PvP)"
+              src="/img/pvp-avatar.png"
+              width={80}
+              height={80}
+              unoptimized
+            />
+            <h3>Arena<br />(PvP)</h3>
+          </li>
           <li className={styles.feature} title="Pandemonium (PvP)">
             <Image
               alt="Pandemonium (PvP)"
@@ -370,29 +381,17 @@ export default function Home ({ showNotification }) {
               height={80}
               unoptimized
             />
-            <h3>Arena<br />(PvP)</h3>
+            <h3>Battlegrounds<br />(PvP)</h3>
           </li>
-          <li className={styles.feature} title="Coming soon">
+          <li className={styles.feature}>
             <Image
               alt="Afterworld (Open World)"
-              title="Coming soon"
               src="/img/openworld-avatar.png"
               width={80}
               height={80}
               unoptimized
             />
-            <h3><span className={styles.lock} title="Coming soon" />Afterworld<br />(Open World)</h3>
-          </li>
-          <li className={styles.feature} title="Coming soon">
-            <Image
-              alt="Dungeons (PvE)"
-              title="Coming soon"
-              src="/img/dungeons-avatar.png"
-              width={80}
-              height={80}
-              unoptimized
-            />
-            <h3><span className={styles.lock} title="Coming soon" />Dungeons<br />(PvE)</h3>
+            <h3>Afterworld<br />(Open World)</h3>
           </li>
         </ul>
       </section>
@@ -412,23 +411,16 @@ export default function Home ({ showNotification }) {
         </div>
       </section>
       <footer className={styles.footer}>
-        <Link href="https://www.youtube.com/watch?v=Wcxy1QqgF3s" target="_blank">
-          <Image
-            alt="Shadowvane: Into the Mists"
-            src="/img/into-the-mists.png"
-            width={800}
-            height={540}
-            unoptimized
-            style={{
-              display: 'block',
-              objectFit: 'cover',
-              boxShadow: '0 0 2rem black',
-              borderRadius: '1rem',
-              margin: '1rem',
-              maxWidth: 'calc(100% - 2rem)'
-            }}
-          />
-        </Link>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/85uYYHmn1ns"
+          title="YouTube video player"
+          frameBorder={0}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen={true}
+          style={{ maxWidth: '90vw', margin: '0 auto' }}
+        />
         <button className={styles.play} onClick={() => setIsOverlayShown(true)}>
           Play
         </button>
@@ -452,7 +444,7 @@ export default function Home ({ showNotification }) {
             style={{ display: 'block', opacity: .25, margin: '0 .5rem' }}
           />
         </Link>
-        <Link href="https://discord.gg/W7bTgdp7" target="_blank">
+        <Link href="https://discord.gg/S7zh2ekg" target="_blank">
           <Image
             alt="Shadowvane on Discord"
             src="/img/discord.png"
