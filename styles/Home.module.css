@@ -1,13 +1,3 @@
-@keyframes carousel {
-  from {
-    margin-left: 0;
-  }
-
-  to {
-    margin-left: -10000px;
-  }
-}
-
 button.link {
   appearance: none;
   display: inline;
@@ -252,9 +242,10 @@ button.link {
 }
 
 .screenshots {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
   overflow: hidden;
-  animation: carousel 240s infinite linear;
 }
 
 .screenshot {
@@ -264,7 +255,10 @@ button.link {
 }
 
 .screenshot > img {
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  height: 20vw;
 }
 
 .footer {
@@ -450,6 +444,10 @@ button.link {
 
   .overlay button:not(.close) {
     margin: 0 auto;
+  }
+
+  .screenshots {
+    grid-template-columns: 1fr;
   }
 }
 

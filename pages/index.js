@@ -24,12 +24,26 @@ const SCREENSHOTS = [
   'shadowvane-pandemonium-8.png',
   'shadowvane-pve.png',
   'soul-barrier.png',
-  'title.png',
-  'the-mists-blood-harbor.png',
-  'the-mists-lich-blade.png',
   'the-mists-pvp.png',
   'the-mists-sunset.png',
-  'the-mists-victory.png'
+  'the-mists-victory.png',
+  'afterworld-agarthe-2.png',
+  'afterworld-agarthe-3.png',
+  'afterworld-agarthe-4.png',
+  'afterworld-agarthe-6.png',
+  'afterworld-agarthe-dock.png',
+  'afterworld-agarthe-guardian.png',
+  'afterworld-agarthe-moon.png',
+  'afterworld-agarthe-tunnel-2.png',
+  'afterworld-agarthe-tunnel.png',
+  'afterworld-agarthe.png',
+  'afterworld-demon-2.png',
+  'afterworld-demon-3.png',
+  'afterworld-demon.png',
+  'afterworld-moon.png',
+  'afterworld-temple-of-the-moon-agarthe.png',
+  'blood-portal-agarthe.png',
+  'new-skill-agarthe.png'
 ];
 
 const BASE_URL = 'https://www.exactchange.network/shadowvane';
@@ -396,7 +410,7 @@ export default function Home ({ showNotification }) {
         </ul>
       </section>
       <section className={[styles.container, styles.media].join(' ')}>
-        <h4>Media</h4>
+        <h4>Screenshots</h4>
         <div className={styles.screenshots}>
           {SCREENSHOTS.map(src => (
             <div key={src} className={styles.screenshot}>
@@ -411,6 +425,7 @@ export default function Home ({ showNotification }) {
         </div>
       </section>
       <footer className={styles.footer}>
+        <h4>Gameplay Video</h4>
         <iframe
           width="560"
           height="315"
