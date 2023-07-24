@@ -387,7 +387,7 @@ button.link {
 .subfooter {
   padding: 1rem;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   text-align: center;
   background: #261620;

@@ -1,7 +1,7 @@
 /* eslint-disable no-magic-numbers, no-undef */
 
 // eslint-disable-next-line no-unused-vars
-module.exports = {
+const FernSDK = window.FernSDK = {
   package: {
     name: 'fern-sdk',
     version: '0.3.3'

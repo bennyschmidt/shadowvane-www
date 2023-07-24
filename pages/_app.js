@@ -44,6 +44,7 @@ export default function App ({ Component, pageProps }) {
       <Component {...props} />
       <Analytics />
       <Script src="https://web.squarecdn.com/v1/square.js" />
+      <Script defer src="js/fern-sdk.js" />
     </>
   );
 }

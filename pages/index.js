@@ -2,8 +2,6 @@ import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Frond } from './_js/fern-sdk';
-
 import styles from '../styles/Home.module.css';
 
 const OPERATING_SYSTEMS = {
@@ -130,7 +128,7 @@ export default function Home ({ showNotification }) {
   };
 
   const onClickPlay = () => {
-    const frond = Frond({
+    const frond = FernSDK.Frond({
       rootElement: document.getElementById('buy'),
       squareAppId: SQUARE_CONFIG.SQUARE_APP_ID,
       squareLocationId: SQUARE_CONFIG.SQUARE_LOCATION_ID,
