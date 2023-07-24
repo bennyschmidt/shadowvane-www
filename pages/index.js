@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { Frond } from './_js/fern-sdk';
 
 import styles from '../styles/Home.module.css';
 
@@ -46,6 +48,13 @@ const SCREENSHOTS = [
   'new-skill-agarthe.png'
 ];
 
+const SQUARE_CONFIG = {
+  // SQUARE_APP_ID: 'sandbox-sq0idb-wyDnCeGb3xKoq1jDladoBA',
+  // SQUARE_LOCATION_ID: 'LREEPV1REVAGE',
+  SQUARE_APP_ID: 'sq0idp-rT4cOK5_kccyWm8GYOnS0g',
+  SQUARE_LOCATION_ID: 'LZQA0FV1D50R3',
+}
+
 const BASE_URL = 'https://www.exactchange.network/shadowvane';
 // const BASE_URL = 'http://localhost:1337/shadowvane';
 
@@ -57,10 +66,24 @@ export default function Home ({ showNotification }) {
   const [isOverlayShown, setIsOverlayShown] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
 
+  const [squareToken, setSquareToken] = useState('');
   const [email, setEmail] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [password1, setPassword1] = useState('');
   const [password2, setPassword2] = useState('');
+
+  const getPayload = useRef();
+
+  useEffect(() => {
+    getPayload.current = () => ({
+      OSName,
+      username: email,
+      displayName,
+      password1,
+      password2,
+      squareToken
+    });
+  }, [OSName, email, displayName, password1, password2, squareToken]);
 
   useEffect(() => {
     for (const userAgent of Object.keys(OPERATING_SYSTEMS)) {
@@ -72,53 +95,8 @@ export default function Home ({ showNotification }) {
     }
   }, []);
 
-  const onClickDownloadWin = () => {
-    window.location.href = `${MEDIA_URL}/shadowvane/win/Shadowvane.zip`;
-  };
 
-  const onClickDownloadMac = () => {
-    window.location.href = `${MEDIA_URL}/shadowvane/mac/Shadowvane.zip`;
-  };
-
-  const onClickDownloadLinux = () => {
-    window.location.href = `${MEDIA_URL}/shadowvane/linux/Shadowvane.zip`;
-  };
-
-  const onClickCreate = async () => {
-    setIsDisabled(true);
-
-    const reasons = [];
-
-    if (!email?.match('@') || email.trim().length < 3) {
-      reasons.push('invalid email address');
-    }
-
-    if (displayName.trim().length < 2) {
-      reasons.push('character name too short');
-    }
-
-    if (password1.trim().length < 6) {
-      reasons.push('password too short');
-    }
-
-    if (password1.trim() !== password2.trim()) {
-      reasons.push('passwords don\'t match');
-    }
-
-    if (reasons.length) {
-      showNotification(`Issues: ${reasons.join(', ')}`);
-      setIsDisabled(false);
-
-      return;
-    }
-
-    const payload = {
-      OSName,
-      username: email,
-      displayName,
-      password1
-    };
-
+  const onSignup = async payload => {
     try {
       const response = await fetch(`${BASE_URL}/signup`, {
         method: 'POST',
@@ -151,37 +129,132 @@ export default function Home ({ showNotification }) {
     setIsDisabled(false);
   };
 
+  const onClickPlay = () => {
+    const frond = Frond({
+      rootElement: document.getElementById('buy'),
+      squareAppId: SQUARE_CONFIG.SQUARE_APP_ID,
+      squareLocationId: SQUARE_CONFIG.SQUARE_LOCATION_ID,
+      onPayment: onClickCreate
+    });
+
+    frond.onShow({ cards: [] });
+    setIsOverlayShown(true);
+  };
+
+  const onClickDownloadWin = () => {
+    window.location.href = `${MEDIA_URL}/shadowvane/win/Shadowvane.zip`;
+  };
+
+  const onClickDownloadMac = () => {
+    window.location.href = `${MEDIA_URL}/shadowvane/mac/Shadowvane.zip`;
+  };
+
+  const onClickDownloadLinux = () => {
+    window.location.href = `${MEDIA_URL}/shadowvane/linux/Shadowvane.zip`;
+  };
+
+  const onClickCreate = ({ squareToken: token }) => {
+    setIsDisabled(true);
+    setSquareToken(token);
+
+    const reasons = [];
+
+    const {
+      OSName: currentOSName,
+      username: currentEmail,
+      displayName: currentDisplayName,
+      password1: currentPassword1,
+      password2: currentPassword2,
+      squareToken: currentSquareToken
+    } = getPayload.current();
+
+    if (!currentEmail?.match('@') || currentEmail.trim().length < 3) {
+      reasons.push('invalid email address');
+    }
+
+    if (currentDisplayName.trim().length < 2) {
+      reasons.push('character name too short');
+    }
+
+    if (currentPassword1.trim().length < 6) {
+      reasons.push('password too short');
+    }
+
+    if (currentPassword1.trim() !== currentPassword2.trim()) {
+      reasons.push('passwords don\'t match');
+    }
+
+    if (!token) {
+      reasons.push('Invalid payment.');
+    }
+
+    if (reasons.length) {
+      showNotification(`Issues: ${reasons.join(', ')}`);
+      setIsDisabled(false);
+
+      return;
+    }
+
+    onSignup({
+      OSName: currentOSName,
+      username: currentEmail,
+      displayName: currentDisplayName,
+      password1: currentPassword1,
+      password2: currentPassword2,
+      squareToken: token
+    });
+  };
+
   return (
     <>
-      {isOverlayShown && (<aside className={styles.overlay}>
-        <h3>Create Account</h3>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={({ target: { value } }) => setEmail(value)}
-        />
-        <input
-          type="text"
-          placeholder="Character name"
-          value={displayName}
-          onChange={({ target: { value } }) => setDisplayName(value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password1}
-          onChange={({ target: { value } }) => setPassword1(value)}
-        />
-        <input
-          type="password"
-          placeholder="Repeat password"
-          value={password2}
-          onChange={({ target: { value } }) => setPassword2(value)}
-        />
-        <button onClick={onClickCreate} disabled={isDisabled}>
-          Create
-        </button>
+      <aside className={isOverlayShown ? styles['overlay-show'] : styles.overlay}>
+        <div className={styles.buy} id="buy">
+          <h3>New Account</h3>
+          <ul className={styles.shop}>
+            <li className={styles.item}>
+              <div className={styles.shadowvane}>
+                <Image
+                  alt="SHADOWVANE"
+                  src="/img/product-box.png"
+                  width={204}
+                  height={300}
+                />
+                <div className={styles.payments}>
+                  <h5 className={styles.price}>$19.99</h5>
+                  <p>Retail price. There is no subscription fee to access online services.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={({ target: { value } }) => setEmail(value)}
+            autoComplete="off"
+          />
+          <input
+            type="text"
+            placeholder="Character name"
+            value={displayName}
+            onChange={({ target: { value } }) => setDisplayName(value)}
+            autoComplete="off"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password1}
+            onChange={({ target: { value } }) => setPassword1(value)}
+            autoComplete="off"
+          />
+          <input
+            type="password"
+            placeholder="Repeat password"
+            value={password2}
+            onChange={({ target: { value } }) => setPassword2(value)}
+            autoComplete="off"
+          />
+        </div>
         <hr />
         <div className={styles.download}>
           <h3>Download</h3>
@@ -222,11 +295,11 @@ export default function Home ({ showNotification }) {
         <button onClick={() => setIsOverlayShown(false)} className={styles.close}>
           Close
         </button>
-      </aside>)}
+      </aside>
       <header className={styles.hero}>
         <section className={[styles.container, styles.cta].join(' ')}>
           <h2>Shadowvane</h2>
-          <button className={styles.play} onClick={() => setIsOverlayShown(true)}>
+          <button className={styles.play} onClick={onClickPlay}>
             Play
           </button>
         </section>
@@ -284,7 +357,6 @@ export default function Home ({ showNotification }) {
                 src="/img/knight-avatar.png"
                 width={80}
                 height={80}
-                unoptimized
               />
               <h3>Knight</h3>
             </li>
@@ -294,7 +366,6 @@ export default function Home ({ showNotification }) {
                 src="/img/huntress-avatar.png"
                 width={80}
                 height={80}
-                unoptimized
               />
               <h3><span className={styles.lock} title="Coming soon" />Huntress</h3>
             </li>
@@ -304,7 +375,6 @@ export default function Home ({ showNotification }) {
                 src="/img/necromancer-avatar.png"
                 width={80}
                 height={80}
-                unoptimized
               />
               <h3><span className={styles.lock} title="Coming soon" />Necromancer</h3>
             </li>
@@ -314,7 +384,6 @@ export default function Home ({ showNotification }) {
                 src="/img/priest-avatar.png"
                 width={80}
                 height={80}
-                unoptimized
               />
               <h3><span className={styles.lock} title="Coming soon" />Priest</h3>
             </li>
@@ -335,7 +404,6 @@ export default function Home ({ showNotification }) {
                   src="/img/lich-blade-icon.png"
                   width={40}
                   height={40}
-                  unoptimized
                 />
               </li>
               <li>
@@ -345,7 +413,6 @@ export default function Home ({ showNotification }) {
                   src="/img/cross-bolt-icon.png"
                   width={40}
                   height={40}
-                  unoptimized
                 />
               </li>
               <li>
@@ -355,7 +422,6 @@ export default function Home ({ showNotification }) {
                   src="/img/soul-barrier-icon.png"
                   width={40}
                   height={40}
-                  unoptimized
                 />
               </li>
               <li>
@@ -365,7 +431,6 @@ export default function Home ({ showNotification }) {
                   src="/img/death-sentence-icon.png"
                   width={40}
                   height={40}
-                  unoptimized
                 />
               </li>
             </ul>
@@ -382,7 +447,6 @@ export default function Home ({ showNotification }) {
               src="/img/pvp-avatar.png"
               width={80}
               height={80}
-              unoptimized
             />
             <h3>Arena<br />(PvP)</h3>
           </li>
@@ -393,7 +457,6 @@ export default function Home ({ showNotification }) {
               src="/img/dungeons-avatar.png"
               width={80}
               height={80}
-              unoptimized
             />
             <h3>Battlegrounds<br />(PvP)</h3>
           </li>
@@ -403,7 +466,6 @@ export default function Home ({ showNotification }) {
               src="/img/openworld-avatar.png"
               width={80}
               height={80}
-              unoptimized
             />
             <h3>Afterworld<br />(Open World)</h3>
           </li>
@@ -419,6 +481,7 @@ export default function Home ({ showNotification }) {
                 src={`/img/screenshots/${src}`}
                 width={880}
                 height={496}
+                unoptimized
               />
             </div>
           ))}
@@ -436,26 +499,17 @@ export default function Home ({ showNotification }) {
           allowFullScreen={true}
           style={{ maxWidth: '90vw', margin: '0 auto' }}
         />
-        <button className={styles.play} onClick={() => setIsOverlayShown(true)}>
+        <button className={styles.play} onClick={onClickPlay}>
           Play
         </button>
       </footer>
-      <div style={{
-        padding: '1rem',
-        display: 'flex',
-        justifyContent: 'end',
-        alignItems: 'center',
-        textAlign: 'center',
-        background: '#261620',
-        borderTop: '3px double #333'
-      }}>
+      <div className={styles.subfooter}>
         <Link href="mailto:hello@bennyschmidt.com" target="_blank">
           <Image
             alt="Email the developer"
             src="/img/envelope.png"
             width={17}
             height={17}
-            unoptimized
             style={{ display: 'block', opacity: .25, margin: '0 .5rem' }}
           />
         </Link>
@@ -465,7 +519,6 @@ export default function Home ({ showNotification }) {
             src="/img/discord.png"
             width={20}
             height={15}
-            unoptimized
             style={{ display: 'block', opacity: .25, margin: '0 .5rem' }}
           />
         </Link>
@@ -475,7 +528,6 @@ export default function Home ({ showNotification }) {
             src="/img/indiedb.png"
             width={64}
             height={30}
-            unoptimized
             style={{ display: 'block', opacity: .25, margin: '0 .5rem' }}
           />
         </Link>

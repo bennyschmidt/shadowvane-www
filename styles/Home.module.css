@@ -322,19 +322,24 @@ button.link {
   border-radius: 100vw;
 }
 
-.overlay {
+.overlay,
+.overlay-show {
   position: fixed;
   left: 5%;
   right: 5%;
   top: 5%;
   bottom: 5%;
-  display: block;
   z-index: 1000;
   background: black;
   border-radius: 1rem;
   border: 3px double white;
   box-shadow: 0 0 2rem black;
   overflow-y: auto;
+  display: none;
+}
+
+.overlay-show {
+  display: block;
 }
 
 .close {
@@ -371,7 +376,61 @@ button.link {
   border-radius: 1rem;
   margin: 2rem;
   color: #911d1d;
-  display: none;
+}
+
+.shop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subfooter {
+  padding: 1rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  text-align: center;
+  background: #261620;
+  border-top: 3px double #333;
+}
+
+.shadowvane {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shadowvane img {
+  max-width: 40%;
+  object-fit: contain;
+}
+
+.buy {
+  text-align: center;
+}
+
+.payments {
+  max-width: calc(40% - 2rem);
+  margin-left: 2rem;
+  text-align: left;
+}
+
+.payments p {
+  text-align: left;
+  margin: 0;
+  font-size: 0.8em;
+  max-width: 75%;
+}
+
+.payments button {
+  margin: 1rem 0;
+}
+
+.price {
+  font-size: 2em;
+  font-weight: 100;
+  text-align: left;
+  margin: 1.4rem 0;
 }
 
 @media (max-width: 900px) {
@@ -431,7 +490,6 @@ button.link {
   }
 
   .overlay {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
@@ -448,6 +506,10 @@ button.link {
 
   .screenshots {
     grid-template-columns: 1fr;
+  }
+
+  .payments p {
+    max-width: 100%;
   }
 }
 

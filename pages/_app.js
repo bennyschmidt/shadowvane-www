@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 
@@ -42,6 +43,7 @@ export default function App ({ Component, pageProps }) {
       </aside>
       <Component {...props} />
       <Analytics />
+      <Script src="https://web.squarecdn.com/v1/square.js" />
     </>
   );
 }
