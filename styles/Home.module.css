@@ -506,6 +506,11 @@ button.link {
 
   .screenshots {
     grid-template-columns: 1fr;
+    width: 50vw;
+  }
+
+  .screenshots img {
+    height: 100%;
   }
 
   .payments p {
