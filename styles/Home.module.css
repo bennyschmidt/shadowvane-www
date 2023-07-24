@@ -245,11 +245,13 @@ button.link {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: 1fr;
+  grid-gap: 0 2rem;
   overflow: hidden;
 }
 
 .screenshot {
-  margin: 1rem;
+  width: 100%;
+  margin: 1rem auto;
   border-radius: .5rem;
   overflow: hidden;
 }
@@ -258,7 +260,7 @@ button.link {
   object-fit: cover;
   object-position: center center;
   width: 100%;
-  height: 20vw;
+  height: 100%;
 }
 
 .footer {
