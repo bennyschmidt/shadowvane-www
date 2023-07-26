@@ -129,7 +129,7 @@ hr {
 @media (max-width: 900px) {
   p {
     max-width: 100%;
-    margin: 2rem 0 0;
+    margin: 2rem auto 0;
   }
 
   input {

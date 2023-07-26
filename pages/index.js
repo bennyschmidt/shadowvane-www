@@ -208,6 +208,9 @@ export default function Home ({ showNotification }) {
       <aside className={isOverlayShown ? styles['overlay-show'] : styles.overlay}>
         <div className={styles.buy} id="buy">
           <h3>New Account</h3>
+          <p style={{ maxWidth: '75%' }}>
+            Buy now: Play now! The game is in OPEN ALPHA and will also go through an OPEN BETA phase before the final version is released. If you buy the game now, you can play immediately and will be invited to all future closed tests.
+          </p>
           <ul className={styles.shop}>
             <li className={styles.item}>
               <div className={styles.shadowvane}>
