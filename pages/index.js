@@ -493,7 +493,7 @@ export default function Home ({ showNotification }) {
         <iframe
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/85uYYHmn1ns"
+          src="https://www.youtube.com/embed/lDelwSdrHys"
           title="YouTube video player"
           frameBorder={0}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
