@@ -514,15 +514,6 @@ export default function Home ({ showNotification }) {
             style={{ display: 'block', opacity: .25, margin: '0 .5rem' }}
           />
         </Link>
-        <Link href="https://discord.gg/uftUMyB2" target="_blank">
-          <Image
-            alt="Shadowvane on Discord"
-            src="/img/discord.png"
-            width={20}
-            height={15}
-            style={{ display: 'block', opacity: .25, margin: '0 .5rem' }}
-          />
-        </Link>
         <Link href="https://www.indiedb.com/games/shadowvane" target="_blank">
           <Image
             alt="Shadowvane on IndieDB"
