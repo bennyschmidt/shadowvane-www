@@ -46,12 +46,12 @@ const SCREENSHOTS = [
   'new-skill-agarthe.png'
 ];
 
-const SQUARE_CONFIG = {
-  // SQUARE_APP_ID: 'sandbox-sq0idb-wyDnCeGb3xKoq1jDladoBA',
-  // SQUARE_LOCATION_ID: 'LREEPV1REVAGE',
-  SQUARE_APP_ID: 'sq0idp-rT4cOK5_kccyWm8GYOnS0g',
-  SQUARE_LOCATION_ID: 'LZQA0FV1D50R3',
-}
+// const SQUARE_CONFIG = {
+//   // SQUARE_APP_ID: 'sandbox-sq0idb-wyDnCeGb3xKoq1jDladoBA',
+//   // SQUARE_LOCATION_ID: 'LREEPV1REVAGE',
+//   SQUARE_APP_ID: 'sq0idp-rT4cOK5_kccyWm8GYOnS0g',
+//   SQUARE_LOCATION_ID: 'LZQA0FV1D50R3',
+// }
 
 const BASE_URL = 'https://www.exactchange.network/shadowvane';
 // const BASE_URL = 'http://localhost:1337/shadowvane';
@@ -127,17 +127,17 @@ export default function Home ({ showNotification }) {
     setIsDisabled(false);
   };
 
-  const onClickPlay = () => {
-    const frond = FernSDK.Frond({
-      rootElement: document.getElementById('buy'),
-      squareAppId: SQUARE_CONFIG.SQUARE_APP_ID,
-      squareLocationId: SQUARE_CONFIG.SQUARE_LOCATION_ID,
-      onPayment: onClickCreate
-    });
+  // const onClickPlay = () => {
+  //   const frond = FernSDK.Frond({
+  //     rootElement: document.getElementById('buy'),
+  //     squareAppId: SQUARE_CONFIG.SQUARE_APP_ID,
+  //     squareLocationId: SQUARE_CONFIG.SQUARE_LOCATION_ID,
+  //     onPayment: onClickCreate
+  //   });
 
-    frond.onShow({ cards: [] });
-    setIsOverlayShown(true);
-  };
+  //   frond.onShow({ cards: [] });
+  //   setIsOverlayShown(true);
+  // };
 
   const onClickDownloadWin = () => {
     window.location.href = `${MEDIA_URL}/shadowvane/win/Shadowvane.zip`;
@@ -300,9 +300,9 @@ export default function Home ({ showNotification }) {
       <header className={styles.hero}>
         <section className={[styles.container, styles.cta].join(' ')}>
           <h2>Shadowvane</h2>
-          <button className={styles.play} onClick={onClickPlay}>
+          {/*<button className={styles.play} onClick={onClickPlay}>
             Play
-          </button>
+          </button>*/}
         </section>
         <div className={styles.video}>
           <video
@@ -500,9 +500,9 @@ export default function Home ({ showNotification }) {
           allowFullScreen={true}
           style={{ maxWidth: '90vw', margin: '0 auto' }}
         />
-        <button className={styles.play} onClick={onClickPlay}>
+        {/* <button className={styles.play} onClick={onClickPlay}>
           Play
-        </button>
+        </button> */}
       </footer>
       <div className={styles.subfooter}>
         <Link href="mailto:hello@bennyschmidt.com" target="_blank">

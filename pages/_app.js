@@ -10,7 +10,7 @@ import styles from '../styles/Home.module.css';
 const TIMEOUT_INTERVAL = 6000;
 
 export default function App ({ Component, pageProps }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState('SHADOWVANE is shutting down on June 16, 2025. Thanks for playing!');
   const [timeoutId, setTimeoutId] = useState();
 
   let timeout;
